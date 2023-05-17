@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <Reference Include="palaflake">
-        <HintPath>..\bin-deps\palaflake.dll</HintPath>
+        <HintPath>..\..\bin-deps\palaflake.dll</HintPath>
       </Reference>
     </ItemGroup>
 
