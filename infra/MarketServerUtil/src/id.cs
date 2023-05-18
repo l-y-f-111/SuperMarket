@@ -5,7 +5,7 @@ using static pilipala.util.id.palaflake;
 public enum ActionType
 {
     Cinema = 0,
-    Film = 1,
+    Goods = 1,
     Order = 2,
     Schedule = 3,
 }

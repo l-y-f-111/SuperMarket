@@ -28,7 +28,7 @@ public class PostgresDatabase : IDatabase
                 arr[i] = new Tuple<string, object>(paras[i].key, paras[i].value);
 
         var executor =
-            DbManaged.ext_DbCommand.getFstVal(_dbManaged.mkCmd(), sql, ListModule.OfArray(arr));
+            DbManaged.ext_DbCommand.getFstVal(_dbManaged.makeCmd(), sql, ListModule.OfArray(arr));
 
         var result = _dbManaged.executeQuery(executor);
 
@@ -46,7 +46,7 @@ public class PostgresDatabase : IDatabase
                 arr[i] = new Tuple<string, object>(paras[i].key, paras[i].value);
 
         var executor =
-            DbManaged.ext_DbCommand.getFstRow(_dbManaged.mkCmd(), sql, ListModule.OfArray(arr));
+            DbManaged.ext_DbCommand.getFstRow(_dbManaged.makeCmd(), sql, ListModule.OfArray(arr));
 
         var result = _dbManaged.executeQuery(executor);
 
@@ -74,7 +74,7 @@ public class PostgresDatabase : IDatabase
                 arr[i] = new Tuple<string, object>(paras[i].key, paras[i].value);
 
         var executor =
-            DbManaged.ext_DbCommand.getFstCol(_dbManaged.mkCmd(), sql, ListModule.OfArray(arr));
+            DbManaged.ext_DbCommand.getFstCol(_dbManaged.makeCmd(), sql, ListModule.OfArray(arr));
 
         var result = _dbManaged.executeQuery(executor);
 
@@ -92,7 +92,7 @@ public class PostgresDatabase : IDatabase
                 arr[i] = new Tuple<string, object>(paras[i].key, paras[i].value);
 
         var executor =
-            DbManaged.ext_DbCommand.select(_dbManaged.mkCmd(), sql, ListModule.OfArray(arr));
+            DbManaged.ext_DbCommand.select(_dbManaged.makeCmd(), sql, ListModule.OfArray(arr));
 
         var result = _dbManaged.executeQuery(executor);
 
@@ -126,7 +126,7 @@ public class PostgresDatabase : IDatabase
                 arr[i] = new Tuple<string, object>(paras[i].key, paras[i].value);
 
         var needAffPred =
-            DbManaged.ext_DbCommand.query(_dbManaged.mkCmd(), sql, ListModule.OfArray(arr));
+            DbManaged.ext_DbCommand.query(_dbManaged.makeCmd(), sql, ListModule.OfArray(arr));
 
         var affPred =
             FSharpFunc<int, bool>.FromConverter(n => expectedAffect < 0 || n == expectedAffect);

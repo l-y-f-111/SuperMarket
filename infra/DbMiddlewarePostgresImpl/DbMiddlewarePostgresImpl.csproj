@@ -14,12 +14,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="DbManaged">
-        <HintPath>..\..\bin-deps\DbManaged.dll</HintPath>
-      </Reference>
-      <Reference Include="fsharper">
-        <HintPath>..\..\bin-deps\fsharper.dll</HintPath>
-      </Reference>
+      <ProjectReference Include="..\DbManaged\DbManaged.fsproj" />
+      <ProjectReference Include="..\DbMiddleware\DbMiddleware.csproj" />
+      <ProjectReference Include="..\fsharper\fsharper.fsproj" />
     </ItemGroup>
 
 </Project>
