@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VipContainerImpl", "VipContainerImpl.csproj", "{48C0ADA1-8EC5-46CD-B598-49714FFAECF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMiddleware", "..\..\..\infra\DbMiddleware\DbMiddleware.csproj", "{0A6B8EA8-348B-437C-9B5E-00A8D7A89B1A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "palaflake", "..\..\..\infra\palaflake\palaflake.fsproj", "{D4186302-C99D-4621-AB55-7D2F93B7F849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketServerUtil", "..\..\..\infra\MarketServerUtil\MarketServerUtil.csproj", "{B711A217-AD0B-468E-84A9-3E7932AA278C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "palaflake", "..\..\..\infra\palaflake\palaflake.fsproj", "{F21CB17B-6B6E-43F2-87EF-4FE6FB3CFAC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VipDbImpl", "..\VipDbImpl\VipDbImpl.csproj", "{C4B48899-E400-4108-91F6-E1B16F18C703}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48C0ADA1-8EC5-46CD-B598-49714FFAECF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C0ADA1-8EC5-46CD-B598-49714FFAECF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C0ADA1-8EC5-46CD-B598-49714FFAECF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C0ADA1-8EC5-46CD-B598-49714FFAECF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6B8EA8-348B-437C-9B5E-00A8D7A89B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6B8EA8-348B-437C-9B5E-00A8D7A89B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6B8EA8-348B-437C-9B5E-00A8D7A89B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6B8EA8-348B-437C-9B5E-00A8D7A89B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4186302-C99D-4621-AB55-7D2F93B7F849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4186302-C99D-4621-AB55-7D2F93B7F849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4186302-C99D-4621-AB55-7D2F93B7F849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4186302-C99D-4621-AB55-7D2F93B7F849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B711A217-AD0B-468E-84A9-3E7932AA278C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B711A217-AD0B-468E-84A9-3E7932AA278C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B711A217-AD0B-468E-84A9-3E7932AA278C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B711A217-AD0B-468E-84A9-3E7932AA278C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21CB17B-6B6E-43F2-87EF-4FE6FB3CFAC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21CB17B-6B6E-43F2-87EF-4FE6FB3CFAC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21CB17B-6B6E-43F2-87EF-4FE6FB3CFAC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21CB17B-6B6E-43F2-87EF-4FE6FB3CFAC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B48899-E400-4108-91F6-E1B16F18C703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B48899-E400-4108-91F6-E1B16F18C703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B48899-E400-4108-91F6-E1B16F18C703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B48899-E400-4108-91F6-E1B16F18C703}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07DFD227-5C24-4D6A-AFC4-E8522A48C489}
+	EndGlobalSection
+EndGlobal

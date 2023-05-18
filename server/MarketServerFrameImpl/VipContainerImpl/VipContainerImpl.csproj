@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+    <ProjectReference Include="..\..\..\infra\MarketServerUtil\MarketServerUtil.csproj" />
+    <ProjectReference Include="..\..\..\infra\palaflake\palaflake.fsproj" />
+    <ProjectReference Include="..\VipDbImpl\VipDbImpl.csproj" />
+  </ItemGroup>
+
+</Project>
