@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+    <ProjectReference Include="..\..\MarketServerFrame\MarketServerFrame.csproj" />
+    <ProjectReference Include="..\OrderContainerImpl\OrderContainerImpl.csproj" />
+    <ProjectReference Include="..\OrderDbImpl\OrderDbImpl\OrderDbImpl.csproj" />
+    <ProjectReference Include="..\UserDbImpl\UserDbImpl.csproj" />
+    <ProjectReference Include="..\VipContainerImpl\VipContainerImpl.csproj" />
+    <ProjectReference Include="..\VipDbImpl\VipDbImpl.csproj" />
+  </ItemGroup>
+
+</Project>
