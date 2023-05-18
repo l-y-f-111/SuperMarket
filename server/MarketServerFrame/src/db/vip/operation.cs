@@ -1,10 +1,10 @@
-namespace SuperMovie.Db.Vip.Operation;
+namespace SuperMarket.Db.Vip.Operation;
 
 using Model;
 
 //resolver : HZC
 //asm file : VipDbImpl
-//impl :: SuperMovie.Db.Vip.Operation.VipOperation
+//impl :: SuperMarket.Db.Vip.Operation.VipOperation
 //impl proj struct :
 //src/db/operation.cs
 public interface IVipOperation

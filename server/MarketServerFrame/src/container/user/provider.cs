@@ -1,11 +1,11 @@
-namespace SuperMovie.Container.User.Provider;
+namespace SuperMarket.Container.User.Provider;
 
 using Entity;
 using Vip.Entity;
 
 //resolver : HZC
 //asm file : UserContainerImpl
-//impl :: SuperMovie.Container.User.Provider.UserProvider
+//impl :: SuperMarket.Container.User.Provider.UserProvider
 //impl proj struct :
 //src/container/provider.cs
 public interface IUserProvider

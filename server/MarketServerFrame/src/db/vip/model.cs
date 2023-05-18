@@ -1,8 +1,8 @@
-namespace SuperMovie.Db.Vip.Model;
+namespace SuperMarket.Db.Vip.Model;
 
 //resolver : HZC
 //asm file : VipDbImpl
-//impl :: SuperMovie.Db.Vip.Model.VipModel
+//impl :: SuperMarket.Db.Vip.Model.VipModel
 //impl proj struct :
 //src/db/model.cs
 public interface IVipModel

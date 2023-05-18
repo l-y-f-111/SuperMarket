@@ -1,10 +1,10 @@
-namespace SuperMovie.Container.Goods.Provider;
+namespace SuperMarket.Container.Goods.Provider;
 
 using Entity;
 
 //resolver : ZTY
 //asm file : GoodsContainerImpl
-//impl :: SuperMovie.Container.Goods.Provider.GoodsProvider
+//impl :: SuperMarket.Container.Goods.Provider.GoodsProvider
 //impl proj struct :
 //src/container/provider.cs
 public interface IGoodsProvider
@@ -12,7 +12,6 @@ public interface IGoodsProvider
     public IGoodsEntity? CreateGoods
     (
         string name,
-        DateTime onlineTime,
         bool isPreorder,
         double price
     );

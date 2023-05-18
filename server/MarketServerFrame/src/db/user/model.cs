@@ -1,8 +1,8 @@
-namespace SuperMovie.Db.User.Model;
+namespace SuperMarket.Db.User.Model;
 
 //resolver : HZC
 //asm file : UserDbImpl
-//impl :: SuperMovie.Db.User.Model.UserModel
+//impl :: SuperMarket.Db.User.Model.UserModel
 //impl proj struct :
 //src/db/model.cs
 public interface IUserModel

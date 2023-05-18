@@ -1,8 +1,8 @@
-namespace SuperMovie.Db.Goods.Model;
+namespace SuperMarket.Db.Goods.Model;
 
 //resolver : ZTY
 //asm file : GoodsDbImpl
-//impl :: SuperMovie.Db.Goods.Model.GoodsModel
+//impl :: SuperMarket.Db.Goods.Model.GoodsModel
 //impl proj struct :
 //src/db/model.cs
 public interface IGoodsModel

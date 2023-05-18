@@ -1,4 +1,4 @@
-namespace SuperMovie.Container.Order.Provider;
+namespace SuperMarket.Container.Order.Provider;
 
 using Entity;
 using Goods.Entity;
@@ -6,7 +6,7 @@ using User.Entity;
 
 //resolver : LYF
 //asm file : OrderContainerImpl
-//impl :: SuperMovie.Container.Order.Provider.OrderProvider
+//impl :: SuperMarket.Container.Order.Provider.OrderProvider
 //impl proj struct :
 //src/container/provider.cs
 public interface IOrderProvider
@@ -15,16 +15,11 @@ public interface IOrderProvider
     (
         IUserEntity user,
         double payAmount,
-        IGoodsEntity film,
-        string seat
+        IGoodsEntity goods
     );
 
     public IOrderEntity? GetOrder(long id);
     public List<IOrderEntity> GetAllOrder();
-    public List<IOrderEntity> FilterOrderByGoods(IGoodsEntity film);
-    public List<IOrderEntity> FilterOrderByGoodsTypes(List<string> filmTypes);
-
-    public List<(string filmActor, double boxOffice)> GetReleasedGoodsActorBor();
-    public List<(string filmName, double boxOffice)> GetReleasedGoodsNameBor();
-    public List<(string filmType, double boxOffice)> GetReleasedGoodsTypeBor();
+    public List<IOrderEntity> FilterOrderByGoods(IGoodsEntity goods);
+    public List<IOrderEntity> FilterOrderByGoodsTypes(List<string> goodsTypes);
 }

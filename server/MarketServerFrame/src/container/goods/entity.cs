@@ -1,8 +1,8 @@
-namespace SuperMovie.Container.Goods.Entity;
+namespace SuperMarket.Container.Goods.Entity;
 
 //resolver : ZTY
 //asm file : GoodsContainerImpl
-//impl :: SuperMovie.Container.Goods.Entity.GoodsEntity
+//impl :: SuperMarket.Container.Goods.Entity.GoodsEntity
 //impl proj struct :
 //src/container/entity.cs
 public interface IGoodsEntity

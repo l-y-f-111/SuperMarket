@@ -1,11 +1,11 @@
-namespace SuperMovie.Container.Order.Entity;
+namespace SuperMarket.Container.Order.Entity;
 
 using User.Entity;
 using Goods.Entity;
 
 //resolver : LYF
 //asm file : OrderContainerImpl
-//impl :: SuperMovie.Container.Order.Entity.OrderEntity
+//impl :: SuperMarket.Container.Order.Entity.OrderEntity
 //impl proj struct :
 //src/container/entity.cs
 public interface IOrderEntity

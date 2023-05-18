@@ -1,10 +1,10 @@
-namespace SuperMovie.Db.User.Operation;
+namespace SuperMarket.Db.User.Operation;
 
 using Model;
 
 //resolver : HZC
 //asm file : UserDbImpl
-//impl :: SuperMovie.Db.User.Operation.UserOperation
+//impl :: SuperMarket.Db.User.Operation.UserOperation
 //impl proj struct :
 //src/db/operation.cs
 public interface IUserOperation

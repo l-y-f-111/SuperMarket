@@ -1,8 +1,8 @@
-namespace SuperMovie.Container.Vip.Entity;
+namespace SuperMarket.Container.Vip.Entity;
 
 //resolver : HZC
 //asm file : VipContainerImpl
-//impl :: SuperMovie.Container.Vip.Entity.VipEntity
+//impl :: SuperMarket.Container.Vip.Entity.VipEntity
 //impl proj struct :
 //src/container/entity.cs
 public interface IVipEntity

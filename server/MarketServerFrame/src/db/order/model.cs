@@ -1,8 +1,8 @@
-namespace SuperMovie.Db.Order.Model;
+namespace SuperMarket.Db.Order.Model;
 
 //resolver : LYF
 //asm file : OrderDbImpl
-//impl :: SuperMovie.Db.Order.Model.OrderModel
+//impl :: SuperMarket.Db.Order.Model.OrderModel
 //impl proj struct :
 //src/db/model.cs
 public interface IOrderModel
