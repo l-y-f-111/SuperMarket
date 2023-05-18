@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\infra\DbManaged\DbManaged.fsproj" />
-    <ProjectReference Include="..\..\..\infra\DbMiddlewarePostgresImpl\DbMiddlewarePostgresImpl.csproj" />
     <ProjectReference Include="..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+    <ProjectReference Include="..\..\..\infra\DbMiddlewarePostgresImpl\DbMiddlewarePostgresImpl.csproj" />
     <ProjectReference Include="..\..\..\infra\MarketServerUtil\MarketServerUtil.csproj" />
     <ProjectReference Include="..\..\MarketServerFrame\MarketServerFrame.csproj" />
     <ProjectReference Include="..\GoodsDbImpl\GoodsDbImpl.csproj" />

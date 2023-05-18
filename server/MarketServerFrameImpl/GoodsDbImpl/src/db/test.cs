@@ -13,7 +13,7 @@ namespace Goods1
 {
     public class test
     {
-        IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_movie");
+        IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_market");
 
         [SetUp]
         public void Setup()
@@ -60,7 +60,7 @@ namespace Goods1
         [Test]
         public void Test_FilterGoodsByIsPreorder()
         {
-            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_movie");
+            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_market");
             IGoodsOperation op = new GoodsOperation(db);
 
             List<IGoodsModel> list = op.FilterGoodsByIsPreorder(true);
@@ -83,7 +83,7 @@ namespace Goods1
         [Test]
         public void Test_FilterGoodsByName()
         {
-            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_movie");
+            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_market");
             IGoodsOperation op = new GoodsOperation(db);
             List<IGoodsModel> list = op.FilterGoodsByName("zty");
             foreach (var item in list)
@@ -95,7 +95,7 @@ namespace Goods1
         [Test]
         public void Test_UpdateGoodsName()
         {
-            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_movie");
+            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_market");
             IGoodsOperation op = new GoodsOperation(db);
             op.UpdateGoodsName(1, "1");
             var list = op.GetAllGoods();
@@ -108,7 +108,7 @@ namespace Goods1
         [Test]
         public void Test_UpdateGoodsIsPreorder()
         {
-            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_movie");
+            IDatabase db = new PostgresDatabase("postgres", "123456", "localhost", 5432, "super_market");
             IGoodsOperation op = new GoodsOperation(db);
             op.UpdateGoodsIsPreorder(1, true);
             var list = op.GetAllGoods();

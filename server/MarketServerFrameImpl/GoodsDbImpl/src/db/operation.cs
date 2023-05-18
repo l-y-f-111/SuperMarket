@@ -1,5 +1,4 @@
 ﻿using DbMiddleware;
-using DbMiddlewarePostgresImpl;
 using SuperMarket.Db.Goods.Model;
 using System;
 using System.Collections.Generic;
@@ -209,7 +208,7 @@ namespace SuperMarket.Db.Goods.Operation
         public bool UpdateGoodsName(long goodsId, string newValue)
         {
             int judgement = Db.Query(
-                "UPDATE super_movie.public.goods SET goods_name=:goods_name WHERE goods_id=:goods_id", 1,
+                "UPDATE public.goods SET goods_name=:goods_name WHERE goods_id=:goods_id", 1,
                 new[]
                 {
                     ("goods_id", (object)goodsId),
@@ -222,7 +221,7 @@ namespace SuperMarket.Db.Goods.Operation
         public bool UpdateGoodsIsPreorder(long goodsId, bool newValue)
         {
             int judgement = Db.Query(
-                "UPDATE super_movie.public.goods SET goods_is_preorder=:goods_is_preorder WHERE goods_id=:goods_id", 1,
+                "UPDATE public.goods SET goods_is_preorder=:goods_is_preorder WHERE goods_id=:goods_id", 1,
                 new[]
                 {
                     ("goods_id", goodsId),
