@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NUnit" Version="3.13.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\infra\DbManaged\DbManaged.fsproj" />
+      <ProjectReference Include="..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+      <ProjectReference Include="..\..\..\infra\MarketServerUtil\MarketServerUtil.csproj" />
+      <ProjectReference Include="..\..\MarketServerFrame\MarketServerFrame.csproj" />
+      <ProjectReference Include="..\GoodsContainerImpl\GoodsContainerImpl.csproj" />
+      <ProjectReference Include="..\GoodsDbImpl\GoodsDbImpl.csproj" />
+      <ProjectReference Include="..\OrderDbImpl\OrderDbImpl\OrderDbImpl.csproj" />
+    </ItemGroup>
+
+</Project>

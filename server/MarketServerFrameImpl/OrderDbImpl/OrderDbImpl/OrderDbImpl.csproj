@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\infra\DbMiddlewarePostgresImpl\DbMiddlewarePostgresImpl.csproj" />
+    <ProjectReference Include="..\..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+    <ProjectReference Include="..\..\..\MarketServerFrame\MarketServerFrame.csproj" />
+    <ProjectReference Include="..\..\GoodsDbImpl\GoodsDbImpl.csproj" />
+  </ItemGroup>
+
+</Project>
