@@ -17,9 +17,6 @@
       <Reference Include="DbManaged">
         <HintPath>..\..\bin-deps\DbManaged.dll</HintPath>
       </Reference>
-      <Reference Include="DbMiddleware">
-        <HintPath>..\DbMiddleware\bin\Debug\net7.0\DbMiddleware.dll</HintPath>
-      </Reference>
       <Reference Include="fsharper">
         <HintPath>..\..\bin-deps\fsharper.dll</HintPath>
       </Reference>

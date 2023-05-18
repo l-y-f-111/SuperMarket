@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMiddlewarePostgresImpl", "DbMiddlewarePostgresImpl.csproj", "{9868BBF8-F8D3-4D55-A1DC-8230B57F6A18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMiddleware", "..\DbMiddleware\DbMiddleware.csproj", "{74D00F6B-47C2-46FF-8861-83077743CB06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9868BBF8-F8D3-4D55-A1DC-8230B57F6A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9868BBF8-F8D3-4D55-A1DC-8230B57F6A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9868BBF8-F8D3-4D55-A1DC-8230B57F6A18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D00F6B-47C2-46FF-8861-83077743CB06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D00F6B-47C2-46FF-8861-83077743CB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D00F6B-47C2-46FF-8861-83077743CB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D00F6B-47C2-46FF-8861-83077743CB06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

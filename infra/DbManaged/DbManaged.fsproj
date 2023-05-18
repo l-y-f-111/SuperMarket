@@ -101,6 +101,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\fsharper\fsharper.fsproj" />
-        <ProjectReference Include="..\palaflake\palaflake\palaflake.fsproj" PrivateAssets="All" />
+        <ProjectReference Include="..\palaflake\palaflake.fsproj" />
     </ItemGroup>
 </Project>

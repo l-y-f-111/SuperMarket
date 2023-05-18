@@ -12,9 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="palaflake">
-        <HintPath>..\..\bin-deps\palaflake.dll</HintPath>
-      </Reference>
+      <ProjectReference Include="..\palaflake\palaflake.fsproj" />
     </ItemGroup>
 
 </Project>
