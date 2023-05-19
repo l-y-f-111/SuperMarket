@@ -18,7 +18,8 @@ namespace SuperMarket.Db.Vip.Operation
             var flag = Db.Query(sql, 1,
                 new[]
                 {
-                    ("vip_level", (object)model.Level), ("vip_discount", (object)model.Discount),
+                    ("vip_level", (object)model.Level), 
+                    ("vip_discount", (object)model.Discount),
                     ("vip_month_price", (object)model.MonthPrice)
                 });
             if (flag == 1) return true;

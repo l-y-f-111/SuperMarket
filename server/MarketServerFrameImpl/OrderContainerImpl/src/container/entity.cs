@@ -48,7 +48,7 @@ namespace SuperMarket.Container.Order.Entity
             get
             {
                 object id = this.Db.QueryForFirstValue(
-                    "SELECT order_user_id FROM  public.order WHERE order_id = :order_id",
+                    "SELECT order_user_id FROM public.order WHERE order_id = :order_id",
                     new (string, object)[1]
                     {
                         ("order_id", (object)this.id)
@@ -90,7 +90,7 @@ namespace SuperMarket.Container.Order.Entity
             get
             {
                 object id = this.Db.QueryForFirstValue(
-                    "SELECT order_goods_id FROM  public.order WHERE order_id = :order_id",
+                    "SELECT order_goods_id FROM public.order WHERE order_id = :order_id",
                     new (string, object)[1]
                     {
                         ("order_id", (object)this.id)
@@ -111,7 +111,7 @@ namespace SuperMarket.Container.Order.Entity
             get
             {
                 object obj = this.Db.QueryForFirstValue(
-                    "SELECT order_time FROM  public.order                 WHERE order_id= :id",
+                    "SELECT order_time FROM public.order WHERE order_id= :id",
                     new (string, object)[1]
                     {
                         ("id", (object)this.id)
@@ -133,7 +133,7 @@ namespace SuperMarket.Container.Order.Entity
         public string? Status
         {
             get => (string)this.Db.QueryForFirstValue(
-                "SELECT order_status FROM  public.order                   WHERE order_id = :id",
+                "SELECT order_status FROM public.order WHERE order_id = :id",
                 new (string, object)[1]
                 {
                     ("id", (object)this.id)

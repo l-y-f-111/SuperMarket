@@ -53,14 +53,14 @@ namespace SuperMarket.Container.Order.Provider
             OrderEntity orderEntity = new OrderEntity(id, payAmount, DateTime.Now, this.userProviderF,
                 this.goodsProvider, this.Db);
             return this.Db.Query(
-                "INSERT INTO  public.order  (order_id,order_user_id,order_pay_amount,order_time,order_goods_id,  order_cinema_id,order_status)  VALUES  (:order_id,:order_user_id,:order_pay_amount,:order_time,:order_goods_id,  :order_cinema_id,:order_status)",
+                "INSERT INTO public.order (order_id,order_user_id,order_pay_amount,order_goods_id,order_time,order_status)  VALUES  (:order_id,:order_user_id,:order_pay_amount,:order_goods_id,:order_time,:order_status)",
                 1, new (string, object)[6]
                 {
                     ("order_id", (object)id),
                     ("order_user_id", (object)user.Id),
                     ("order_pay_amount", (object)payAmount),
-                    ("order_time", (object)DateTime.Now),
                     ("order_goods_id", (object)goods.Id),
+                    ("order_time", (object)DateTime.Now),
                     ("order_status", (object)"created")
                 }) == 1
                 ? (IOrderEntity)orderEntity
@@ -70,7 +70,7 @@ namespace SuperMarket.Container.Order.Provider
         public IOrderEntity? GetOrder(long id)
         {
             Dictionary<string, object> dictionary = this.Db.QueryForFirstRow(
-                "SELECT * FROM  public.order  WHERE order_id = :id", new (string, object)[1]
+                "SELECT * FROM public.order WHERE order_id = :id", new (string, object)[1]
                 {
                     (nameof(id), (object)id)
                 });

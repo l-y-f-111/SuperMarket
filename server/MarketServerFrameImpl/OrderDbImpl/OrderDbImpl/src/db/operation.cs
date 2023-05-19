@@ -19,18 +19,18 @@ namespace SuperMarket.Db.Order.Operation
         public bool CreateOrder(IOrderModel model)
         {
             var flag = Db.Query(@$"INSERT INTO public.order
-             (order_id,order_user_id,order_pay_amount,order_time,order_goods_id,
+             (order_id,order_user_id,order_pay_amount,order_goods_id,order_time,
              order_status)
              VALUES
-             (:order_id,:order_user_id,:order_pay_amount,:order_time,:order_goods_id,
+             (:order_id,:order_user_id,:order_pay_amount,:order_goods_id,:order_time,
              :order_status)", 1,
                 new[]
                 {
                     ("order_id", (object)model.Id),
                     ("order_user_id", (object)model.UserId),
                     ("order_pay_amount", (object)model.PayAmount),
-                    ("order_time", (object)model.Time),
                     ("order_goods_id", (object)model.GoodsId),
+                    ("order_time", (object)model.Time),
                     ("order_status", (object)model.Status)
                 });
             if (flag == 1)

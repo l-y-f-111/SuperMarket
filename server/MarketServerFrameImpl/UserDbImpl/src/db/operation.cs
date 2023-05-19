@@ -19,7 +19,8 @@ namespace SuperMarket.Db.User.Operation
             var flag = Db.Query(sql, 1,
                 new[]
                 {
-                    ("user_id", (object)model.Id), ("user_pwd_hash", (object)model.PwdHash),
+                    ("user_id", (object)model.Id), 
+                    ("user_pwd_hash", (object)model.PwdHash),
                     ("user_vip_level", (object)model.VipLevel),
                     ("user_vip_level_expire_time", (object)model.VipLevelExpireTime)
                 });
