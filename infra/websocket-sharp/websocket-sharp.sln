@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "websocket-sharp", "websocket-sharp.csproj", "{FCE68C60-986C-4E81-BE94-44B6F9038EDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCE68C60-986C-4E81-BE94-44B6F9038EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCE68C60-986C-4E81-BE94-44B6F9038EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCE68C60-986C-4E81-BE94-44B6F9038EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCE68C60-986C-4E81-BE94-44B6F9038EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
