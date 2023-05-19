@@ -1,0 +1,84 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="DbManaged">
+            <HintPath>..\_dep\DbManaged.dll</HintPath>
+        </Reference>
+        <Reference Include="DbMiddleware">
+            <HintPath>..\DbMiddleware\bin\Debug\net6.0\DbMiddleware.dll</HintPath>
+        </Reference>
+        <Reference Include="DbMiddlewarePostgresImpl">
+            <HintPath>..\DbMiddlewarePostgresImpl\bin\Debug\net6.0\DbMiddlewarePostgresImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="GoodsContainerImpl">
+            <HintPath>..\_build\GoodsContainerImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="GoodsDbImpl">
+            <HintPath>..\_build\GoodsDbImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="fsharper">
+            <HintPath>..\_dep\fsharper.dll</HintPath>
+        </Reference>
+        <Reference Include="OrderContainerImpl">
+            <HintPath>..\_build\OrderContainerImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="OrderDbImpl">
+            <HintPath>..\_build\OrderDbImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="palaflake">
+            <HintPath>..\_dep\palaflake.dll</HintPath>
+        </Reference>
+        <Reference Include="UserContainerImpl">
+            <HintPath>..\_build\UserContainerImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="UserDbImpl">
+            <HintPath>..\_build\UserDbImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="VipContainerImpl">
+            <HintPath>..\_build\VipContainerImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="VipDbImpl">
+            <HintPath>..\_build\VipDbImpl.dll</HintPath>
+        </Reference>
+        <Reference Include="websocket-sharp">
+            <HintPath>..\..\websocket-sharp\websocket-sharp\bin\Release\net6.0\websocket-sharp.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="cert/**">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>cert/%(RecursiveDir)/%(Filename)%(Extension)</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AlipaySDKNet.Core" Version="4.6.398" />
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\infra\AlipayF2F\AlipayF2F.csproj" />
+      <ProjectReference Include="..\..\infra\DbMiddlewarePostgresImpl\DbMiddlewarePostgresImpl.csproj" />
+      <ProjectReference Include="..\..\infra\DbMiddleware\DbMiddleware.csproj" />
+      <ProjectReference Include="..\..\infra\MarketServerUtil\MarketServerUtil.csproj" />
+      <ProjectReference Include="..\..\infra\websocket-sharp\websocket-sharp.csproj" />
+      <ProjectReference Include="..\MarketServerFrameImpl\GoodsContainerImpl\GoodsContainerImpl.csproj" />
+      <ProjectReference Include="..\MarketServerFrameImpl\OrderContainerImpl\OrderContainerImpl.csproj" />
+      <ProjectReference Include="..\MarketServerFrameImpl\UserContainerImpl\UserContainerImpl.csproj" />
+      <ProjectReference Include="..\MarketServerFrameImpl\VipContainerImpl\VipContainerImpl.csproj" />
+      <ProjectReference Include="..\MarketServerFrameImpl\VipDbImpl\VipDbImpl.csproj" />
+      <ProjectReference Include="..\MarketServerFrame\MarketServerFrame.csproj" />
+    </ItemGroup>
+
+</Project>
