@@ -39,30 +39,30 @@ public class Worker : BackgroundService
 
         var wsServer = new WebSocketServer("ws://localhost:11451");
         var orderGen = new IdGenerator(ActionType.Order);
-        var GoodsGen = new IdGenerator(ActionType.Goods);
+        var goodsGen = new IdGenerator(ActionType.Goods);
         var db = new PostgresDatabase
         (
             "postgres",
             "65a1561425f744e2b541303f628963f8",
             "localhost",
             5432,
-            "super_Market"
+            "super_market"
         );
         
-        IGoodsProvider GoodsProvider = null;
+        IGoodsProvider goodsProvider = null;
         IOrderProvider orderProvider = null;
         IUserProvider userProvider = null;
         IVipProvider vipProvider = null;
 
-        var GoodsProviderF = () => GoodsProvider;
+        var goodsProviderF = () => goodsProvider;
         var orderProviderF = () => orderProvider;
         var userProviderF = () => userProvider;
         var vipProviderF = () => vipProvider;
         
-        GoodsProvider = new GoodsProvider(GoodsGen, db);
+        goodsProvider = new GoodsProvider(goodsGen, db);
         orderProvider = new OrderProvider(
             userProviderF,
-            GoodsProvider,
+            goodsProvider,
             new GoodsOperation(db),
             orderGen,
             db
@@ -73,29 +73,29 @@ public class Worker : BackgroundService
 //Goods
         wsServer.AddWebSocketService<AddGoods>
         ("/add_goods",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<DeleteGoods>
         ("/delete_goods",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetAllGoods>
         ("/get_all_goods",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetAllGoodsType>
         ("/get_all_goods_type",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetGoods>
         ("/get_goods",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<SearchGoods>
         ("/search_goods",
             handler => handler
                 .Set(
-                    GoodsProviderF()
+                    goodsProviderF()
                 )
         );
         wsServer.AddWebSocketService<UpdateGoods>
         ("/update_goods",
-            handler => handler.Set(GoodsProviderF()));
+            handler => handler.Set(goodsProviderF()));
 
 //Order
         wsServer.AddWebSocketService<CreateOrder>
@@ -103,7 +103,7 @@ public class Worker : BackgroundService
             handler => handler
                 .Set(
                     userProviderF(),
-                    GoodsProviderF(),
+                    goodsProviderF(),
                     orderProviderF(),
                     f2fClient
                 )
