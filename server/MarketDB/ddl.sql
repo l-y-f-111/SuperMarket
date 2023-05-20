@@ -27,11 +27,12 @@ SET default_table_access_method = heap;
 CREATE TABLE public.goods (
     goods_id bigint,
     goods_name text,
-    goods_is_preorder boolean,
+    goods_is_ready boolean,
     goods_types text,
     goods_price double precision,
     goods_cover_img text,
-    goods_preview_video_url text
+    goods_preview_video_url text,
+    goods_stock bigint
 );
 
 
@@ -68,22 +69,17 @@ CREATE TABLE public."user" (
 ALTER TABLE public."user" OWNER TO postgres;
 
 --
--- Data for Name: goods; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Name: vip; Type: TABLE; Schema: public; Owner: postgres
 --
 
+CREATE TABLE public.vip (
+    vip_level bigint,
+    vip_discount double precision,
+    vip_month_price double precision
+);
 
 
---
--- Data for Name: order; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
+ALTER TABLE public.vip OWNER TO postgres;
 
 --
 -- PostgreSQL database dump complete
