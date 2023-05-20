@@ -38,11 +38,11 @@
                 <v-checkbox
                         v-model="selected_goods_ids"
                         :label="item.GoodsName"
-                        :value="item.GoodsId"
+                        :value="Number(item.GoodsId)"
                 />
                 <v-chip
-                    :text="item.GoodsId.toString()"
-                    color="primary"
+                        :text="item.GoodsId.toString()"
+                        color="primary"
                 />
             </v-banner-text>
             <template v-slot:actions>
@@ -84,7 +84,7 @@ async function delete_batch() {
 }
 
 const AllGoods = ref<GoodsRsp[]>([])
-const selected_goods_ids = ref<bigint[]>([])
+const selected_goods_ids = ref<number[]>([])
 
 onMounted(async () => {
     AllGoods.value = (await getAllGoods({})).Collection

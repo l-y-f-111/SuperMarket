@@ -45,7 +45,7 @@ function isDateKey(key: string) {
 }
 
 function isBigIntKey(key: string) {
-    return key.search("Id") !== -1
+    return key.search("Id") !== -1 && key.search("Ids") === -1
 }
 
 function reqStringify(req: any) {

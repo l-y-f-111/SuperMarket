@@ -1,23 +1,26 @@
-import {wsUrlRoot} from "@/scripts/ws/meta"
 import {createWebSocket, recvMsg, reqStringify, rspParse, sendMsg} from "@/scripts/ws/helper"
 
 export {deleteBatchGoods}
 export type {
-    DeleteGoodsReq,
-    DeleteGoodsRsp
+    DeleteBatchGoodsReq,
+    DeleteBatchGoodsRsp
 }
 
-type DeleteGoodsReq =
+type DeleteBatchGoodsReq =
     {
-        GoodsIds: bigint[]
+        GoodsIds: number[]
     }
 
-type DeleteGoodsRsp =
+type DeleteBatchGoodsRsp =
     {
         Ok: boolean
     }
 
-async function deleteBatchGoods(req: DeleteGoodsReq) {
+
+// HACK
+const wsUrlRoot = "ws://localhost:11452"
+
+async function deleteBatchGoods(req: DeleteBatchGoodsReq) {
     const conn = createWebSocket(`${wsUrlRoot}/delete_batch_goods`)
 
     const task = recvMsg(conn)
@@ -27,5 +30,5 @@ async function deleteBatchGoods(req: DeleteGoodsReq) {
     const msg = await task
     console.log('delete_batch_goods rsp:' + msg)
 
-    return <DeleteGoodsRsp>rspParse(msg)
+    return <DeleteBatchGoodsRsp>rspParse(msg)
 }
