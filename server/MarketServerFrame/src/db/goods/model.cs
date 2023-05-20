@@ -9,9 +9,10 @@ public interface IGoodsModel
 {
     public long Id { get; set; }
     public string Name { get; set; }
-    public bool IsPreorder { get; set; }
+    public bool IsReady { get; set; }
     public List<string> Types { get; set; }
     public double Price { get; set; }
     public string CoverImg { get; set; }
     public string PreviewVideoUrl { get; set; }
+    public long Stock { get; set; }
 }

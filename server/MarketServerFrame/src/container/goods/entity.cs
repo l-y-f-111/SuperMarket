@@ -22,7 +22,7 @@ public interface IGoodsEntity
     public long Id { get; }
 
     public string? Name { get; set; }
-    public bool IsPreorder { get; set; }
+    public bool IsReady { get; set; }
 
     public List<string> Types { get; }
     public bool AddType(string name);
@@ -33,4 +33,5 @@ public interface IGoodsEntity
 
     public string? CoverImg { get; set; }
     public string? PreviewVideoUrl { get; set; }
+    public long Stock { get; set; }
 }
