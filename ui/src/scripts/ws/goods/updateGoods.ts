@@ -14,8 +14,9 @@ type UpdateGoodsReq =
         GoodsCoverImg: string
         GoodsPreviewVideoUrl: string
         GoodsPrice: number
-        GoodsIsPreorder: boolean
+        GoodsIsReady: boolean
         GoodsTypes: string[]
+        GoodsStock: number
     }
 
 type UpdateGoodsRsp =

@@ -19,8 +19,9 @@ type GetGoodsRsp =
         GoodsCoverImg: string
         GoodsPreviewVideoUrl: string
         GoodsPrice: number
-        GoodsIsPreorder: boolean
+        GoodsIsReady: boolean
         GoodsTypes: string[]
+        GoodsStock: number
     }
 
 async function getGoods(req: GetGoodsReq) {
