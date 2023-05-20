@@ -12,8 +12,9 @@ public struct AddGoodsReq
     public string GoodsCoverImg;
     public string GoodsPreviewVideoUrl;
     public double GoodsPrice;
-    public bool GoodsIsPreorder;
+    public bool GoodsIsReady;
     public List<string> GoodsTypes;
+    public long GoodsStock;
 }
 
 public struct AddGoodsRsp
@@ -41,7 +42,7 @@ public class AddGoods : WebSocketBehavior
         var Goods = _goodsProvider.CreateGoods
         (
             req.GoodsName,
-            req.GoodsIsPreorder,
+            req.GoodsIsReady,
             req.GoodsPrice
         );
 

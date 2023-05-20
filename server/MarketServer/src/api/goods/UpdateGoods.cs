@@ -12,10 +12,9 @@ public struct UpdateGoodsReq
     public string GoodsCoverImg;
     public string GoodsPreviewVideoUrl;
     public double GoodsPrice;
-    public bool GoodsIsPreorder;
-    public DateTime GoodsOnlineTime;
+    public bool GoodsIsReady;
     public List<string> GoodsTypes;
-    public List<string> GoodsActors;
+    public long GoodsStock;
 }
 
 public struct UpdateGoodsRsp
@@ -48,7 +47,7 @@ public class UpdateGoods : WebSocketBehavior
             Goods.CoverImg = req.GoodsCoverImg;
             Goods.PreviewVideoUrl = req.GoodsPreviewVideoUrl;
             Goods.Price = req.GoodsPrice;
-            Goods.IsPreorder = req.GoodsIsPreorder;
+            Goods.IsReady = req.GoodsIsReady;
 
             Goods.ClearType();
             foreach (var type in req.GoodsTypes)

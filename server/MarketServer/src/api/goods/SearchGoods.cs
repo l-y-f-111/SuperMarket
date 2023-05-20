@@ -11,10 +11,6 @@ public struct SearchGoodsReq
 {
     public bool EnableScheduleSearch;
     public List<string> GoodsTypes;
-    public DateTime GoodsOnlineTimeStart;
-    public DateTime GoodsOnlineTimeEnd;
-    public DateTime GoodsScheduleTimeStart;
-    public DateTime GoodsScheduleTimeEnd;
     public string GoodsNameKeyWord;
 }
 
@@ -86,7 +82,7 @@ public class SearchGoods : WebSocketBehavior
                 GoodsCoverImg = Goods.CoverImg,
                 GoodsPreviewVideoUrl = Goods.PreviewVideoUrl,
                 GoodsPrice = Goods.Price,
-                GoodsIsPreorder = Goods.IsPreorder,
+                GoodsIsReady = Goods.IsReady,
                 GoodsTypes = Goods.Types,
             };
 

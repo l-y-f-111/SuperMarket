@@ -17,10 +17,9 @@ public struct GetGoodsRsp
     public string GoodsCoverImg;
     public string GoodsPreviewVideoUrl;
     public double GoodsPrice;
-    public bool GoodsIsPreorder;
-    public DateTime GoodsOnlineTime;
+    public bool GoodsIsReady;
     public List<string> GoodsTypes;
-    public List<string> GoodsActors;
+    public long GoodsStock;
 }
 
 //api : get_goods
@@ -51,7 +50,7 @@ public class GetGoods : WebSocketBehavior
                 GoodsCoverImg = Goods.CoverImg,
                 GoodsPreviewVideoUrl = Goods.PreviewVideoUrl,
                 GoodsPrice = Goods.Price,
-                GoodsIsPreorder = Goods.IsPreorder,
+                GoodsIsReady = Goods.IsReady,
                 GoodsTypes = Goods.Types,
             };
         }
@@ -64,7 +63,7 @@ public class GetGoods : WebSocketBehavior
                 GoodsCoverImg = "",
                 GoodsPreviewVideoUrl = "",
                 GoodsPrice = -1,
-                GoodsIsPreorder = false
+                GoodsIsReady = false
             };
         }
 

@@ -16,8 +16,9 @@ public struct GoodsRsp
     public string GoodsCoverImg;
     public string GoodsPreviewVideoUrl;
     public double GoodsPrice;
-    public bool GoodsIsPreorder;
+    public bool GoodsIsReady;
     public List<string> GoodsTypes;
+    public long GoodsStock;
 }
 
 public struct GetAllGoodsRsp
@@ -53,8 +54,9 @@ public class GetAllGoods : WebSocketBehavior
                 GoodsCoverImg = Goods.CoverImg,
                 GoodsPreviewVideoUrl = Goods.PreviewVideoUrl,
                 GoodsPrice = Goods.Price,
-                GoodsIsPreorder = Goods.IsPreorder,
+                GoodsIsReady = Goods.IsReady,
                 GoodsTypes = Goods.Types,
+                GoodsStock = Goods.Stock,
             };
             GoodsRspList.Add(GoodsRsp);
         }
