@@ -14,29 +14,32 @@ namespace SuperMarket.Db.Goods.Operation
         (
             long id,
             string name,
-            bool isPreorder,
+            bool isReady,
             List<string> types,
             double price,
             string coverimg,
-            string previewvideourl
+            string previewvideourl,
+            long stock
         )
         {
             Id = id;
             Name = name;
-            IsPreorder = isPreorder;
+            IsReady = isReady;
             Types = types;
             Price = price;
             CoverImg = coverimg;
             PreviewVideoUrl = previewvideourl;
+            Stock = stock;
         }
 
         public long Id { get; set; }
         public string Name { get; set; }
-        public bool IsPreorder { get; set; }
+        public bool IsReady { get; set; }
         public List<string> Types { get; set; }
         public double Price { get; set; }
         public string CoverImg { get; set; }
         public string PreviewVideoUrl { get; set; }
+        public long Stock { get; set; }
     }
 
     public class GoodsOperation : IGoodsOperation
@@ -65,19 +68,20 @@ namespace SuperMarket.Db.Goods.Operation
 
             int judgement = Db.Query(
                 @"INSERT INTO public.goods 
-                ( goods_id, goods_name, goods_is_preorder, goods_types, goods_price, goods_cover_img, goods_preview_video_url) 
+                ( goods_id, goods_name, goods_is_ready, goods_types, goods_price, goods_cover_img, goods_preview_video_url, goods_stock) 
                 VAlUES 
-                (:goods_id,:goods_name,:goods_is_preorder,:goods_types,:goods_price,:goods_cover_img,:goods_preview_video_url)",
+                (:goods_id,:goods_name,:goods_is_ready,:goods_types,:goods_price,:goods_cover_img,:goods_preview_video_url,:goods_stock)",
                 1,
-                new[]
+                new (string, object)[]
                 {
                     ("goods_id", model.Id),
                     ("goods_name", model.Name),
-                    ("goods_is_preorder", model.IsPreorder),
+                    ("goods_is_ready", model.IsReady),
                     ("goods_types", str1),
                     ("goods_price", model.Price),
                     ("goods_cover_img", model.CoverImg),
-                    ("goods_preview_video_url", (object)model.PreviewVideoUrl)
+                    ("goods_preview_video_url", model.PreviewVideoUrl),
+                    ("goods_stock", model.Stock)
                 });
             if (judgement == 1) return true;
             else return false;
@@ -112,11 +116,12 @@ namespace SuperMarket.Db.Goods.Operation
                     var model = new GoodsModel(
                         (long)row["goods_id"],
                         (string)row["goods_name"],
-                        (bool)row["goods_is_preorder"],
+                        (bool)row["goods_is_ready"],
                         list1,
                         (double)row["goods_price"],
                         (string)row["goods_cover_img"],
-                        (string)row["goods_preview_video_url"]
+                        (string)row["goods_preview_video_url"],
+                        (long)row["goods_stock"]
                     );
                     list.Add(model);
                 }
@@ -126,11 +131,11 @@ namespace SuperMarket.Db.Goods.Operation
             else return new List<IGoodsModel>();
         }
 
-        public List<IGoodsModel> FilterGoodsByIsPreorder(bool isPreorder)
+        public List<IGoodsModel> FilterGoodsByIsReady(bool isReady)
         {
             List<Dictionary<string, object>> result = Db.QueryForTable(
-                "SElECT * FROM public.goods WHERE goods_is_preorder=:goods_is_preorder ",
-                new[] { ("goods_is_preorder", (object)isPreorder) });
+                "SElECT * FROM public.goods WHERE goods_is_ready=:goods_is_ready ",
+                new[] { ("goods_is_ready", (object)isReady) });
             List<IGoodsModel> list = new List<IGoodsModel>();
             foreach (Dictionary<string, object> row in result)
             {
@@ -138,11 +143,12 @@ namespace SuperMarket.Db.Goods.Operation
                 var model = new GoodsModel(
                     (long)row["goods_id"],
                     (string)row["goods_name"],
-                    (bool)row["goods_is_preorder"],
+                    (bool)row["goods_is_ready"],
                     list1,
                     (double)row["goods_price"],
                     (string)row["goods_cover_img"],
-                    (string)row["goods_preview_video_url"]
+                    (string)row["goods_preview_video_url"],
+                    (long)row["goods_stock"]
                 );
                 list.Add(model);
             }
@@ -169,11 +175,12 @@ namespace SuperMarket.Db.Goods.Operation
                 var model = new GoodsModel(
                     (long)row["goods_id"],
                     (string)row["goods_name"],
-                    (bool)row["goods_is_preorder"],
+                    (bool)row["goods_is_ready"],
                     list1,
                     (double)row["goods_price"],
                     (string)row["goods_cover_img"],
-                    (string)row["goods_preview_video_url"]
+                    (string)row["goods_preview_video_url"],
+                    (long)row["goods_stock"]
                 );
                 list.Add(model);
             }
@@ -193,11 +200,12 @@ namespace SuperMarket.Db.Goods.Operation
                 var model = new GoodsModel(
                     (long)row["goods_id"],
                     (string)row["goods_name"],
-                    (bool)row["goods_is_preorder"],
+                    (bool)row["goods_is_ready"],
                     list1,
                     (double)row["goods_price"],
                     "",
-                    ""
+                    "",
+                    (long)row["goods_stock"]
                 );
                 list.Add(model);
             }
@@ -218,14 +226,14 @@ namespace SuperMarket.Db.Goods.Operation
             else return false;
         }
 
-        public bool UpdateGoodsIsPreorder(long goodsId, bool newValue)
+        public bool UpdateGoodsIsReady(long goodsId, bool newValue)
         {
             int judgement = Db.Query(
-                "UPDATE public.goods SET goods_is_preorder=:goods_is_preorder WHERE goods_id=:goods_id", 1,
+                "UPDATE public.goods SET goods_is_ready=:goods_is_ready WHERE goods_id=:goods_id", 1,
                 new[]
                 {
                     ("goods_id", goodsId),
-                    ("goods_is_preorder", (object)newValue)
+                    ("goods_is_ready", (object)newValue)
                 });
             if (judgement == 1) return true;
             else return false;
@@ -279,11 +287,12 @@ namespace SuperMarket.Db.Goods.Operation
             IGoodsModel goodsModel = new GoodsModel(
                 (long)result["goods_id"],
                 (string)result["goods_name"],
-                (bool)result["goods_is_preorder"],
+                (bool)result["goods_is_ready"],
                 list1,
                 (double)result["goods_price"],
                 (string)result["goods_cover_img"],
-                (string)result["goods_preview_video_url"]
+                (string)result["goods_preview_video_url"],
+                (long)result["goods_stock"]
             );
             if (goodsModel != null) return goodsModel;
             else return null;
@@ -302,11 +311,12 @@ namespace SuperMarket.Db.Goods.Operation
                 (
                     (long)item["goods_id"],
                     (string)item["goods_name"],
-                    (bool)item["goods_is_preorder"],
+                    (bool)item["goods_is_ready"],
                     list1,
                     (double)item["goods_price"],
                     (string)item["goods_cover_img"],
-                    (string)item["goods_preview_video_url"]
+                    (string)item["goods_preview_video_url"],
+                    (long)item["goods_stock"]
                 );
                 list.Add(goodsModel);
             }
@@ -335,6 +345,19 @@ namespace SuperMarket.Db.Goods.Operation
                 {
                     ("goods_id", (object)goodsId),
                     ("goods_preview_video_url", (object)newValue)
+                });
+            if (judgement == 1) return true;
+            else return false;
+        }
+        
+        public bool UpdateGoodsStock(long goodsId, long newValue)
+        {
+            int judgement = Db.Query(
+                "UPDATE public.goods SET goods_stock=:goods_stock WHERE goods_id=:goods_id", 1,
+                new[]
+                {
+                    ("goods_id", (object)goodsId),
+                    ("goods_stock", (object)newValue)
                 });
             if (judgement == 1) return true;
             else return false;

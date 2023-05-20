@@ -12,28 +12,31 @@ namespace SuperMarket.Db.Goods.Model
         (
             long id,
             string name,
-            bool isPreorder,
+            bool isReady,
             List<string> types,
             double price,
             string coverimg,
-            string previewvideourl
+            string previewvideourl,
+            long stock
         )
         {
             Id = id;
             Name = name;
-            IsPreorder = isPreorder;
+            IsReady = isReady;
             Types = types;
             Price = price;
             CoverImg = coverimg;
             PreviewVideoUrl = previewvideourl;
+            Stock = stock;
         }
 
         public long Id { get; set; }
         public string Name { get; set; }
-        public bool IsPreorder { get; set; }
+        public bool IsReady { get; set; }
         public List<string> Types { get; set; }
         public double Price { get; set; }
         public string CoverImg { get; set; }
         public string PreviewVideoUrl { get; set; }
+        public long Stock { get; set; }
     }
 }

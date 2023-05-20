@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\infra\DbMiddlewarePostgresImpl\DbMiddlewarePostgresImpl.csproj" />
     <ProjectReference Include="..\..\..\infra\DbMiddleware\DbMiddleware.csproj" />
     <ProjectReference Include="..\..\MarketServerFrame\MarketServerFrame.csproj" />
   </ItemGroup>

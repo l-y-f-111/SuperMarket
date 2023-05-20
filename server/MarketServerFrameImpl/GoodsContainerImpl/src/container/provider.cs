@@ -25,10 +25,10 @@ namespace SuperMarket.Container.Goods.Provider
 
         public IGoodsEntity? CreateGoods
         (string name,
-            bool isPreorder,
+            bool isReady,
             double price)
         {
-            var model = new Db.Goods.Model.GoodsModel(gen.Next(), name, isPreorder, new List<string>(), price, "", "");
+            var model = new Db.Goods.Model.GoodsModel(gen.Next(), name, isReady, new List<string>(), price, "", "", 0);
             IGoodsOperation op = new GoodsOperation(Db);
             bool judgement = op.CreateGoods(model);
             if (judgement)
@@ -70,10 +70,10 @@ namespace SuperMarket.Container.Goods.Provider
             else return new List<IGoodsEntity>();
         }
 
-        public List<IGoodsEntity> FilterGoodsByIsPreorder(bool isPreorder)
+        public List<IGoodsEntity> FilterGoodsByIsReady(bool isReady)
         {
             GoodsOperation op = new GoodsOperation(Db);
-            List<IGoodsModel> goodsModels = op.FilterGoodsByIsPreorder(isPreorder);
+            List<IGoodsModel> goodsModels = op.FilterGoodsByIsReady(isReady);
             if (goodsModels != null)
             {
                 List<IGoodsEntity> result = new List<IGoodsEntity>();

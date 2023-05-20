@@ -80,7 +80,7 @@ namespace SuperMarket.Container.Goods.Entity
             }
         }
 
-        public bool IsPreorder
+        public bool IsReady
         {
             get
             {
@@ -88,7 +88,7 @@ namespace SuperMarket.Container.Goods.Entity
                 IGoodsModel? result1 = op.GetGoods(Id);
                 if (result1 != null)
                 {
-                    bool reuslt = result1.IsPreorder;
+                    bool reuslt = result1.IsReady;
                     return (bool)reuslt;
                 }
 
@@ -97,7 +97,7 @@ namespace SuperMarket.Container.Goods.Entity
             set
             {
                 IGoodsOperation op = new GoodsOperation(Db);
-                op.UpdateGoodsIsPreorder(Id, value);
+                op.UpdateGoodsIsReady(Id, value);
             }
         }
 
@@ -241,6 +241,32 @@ namespace SuperMarket.Container.Goods.Entity
                 {
                     IGoodsOperation op = new GoodsOperation(Db);
                     op.UpdateGoodsPreviewVideoUrl(Id, value);
+                }
+
+                return;
+            }
+        }
+        
+        public long Stock
+        {
+            get
+            {
+                IGoodsOperation op = new GoodsOperation(Db);
+                IGoodsModel? result1 = op.GetGoods(Id);
+                if (result1 != null)
+                {
+                    long reuslt = result1.Stock;
+                    if (reuslt != null) return reuslt;
+                    else return 0;
+                }
+                else return 0;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    IGoodsOperation op = new GoodsOperation(Db);
+                    op.UpdateGoodsStock(Id, value);
                 }
 
                 return;

@@ -55,12 +55,12 @@ namespace test
         }
 
         [Test]
-        public void Test_FilterGoodsByIsPreorder()
+        public void Test_FilterGoodsByIsReady()
         {
             var gen = new IdGenerator(ActionType.Goods);
             IGoodsProvider op = new GoodsProvider(gen, db);
             IGoodsEntity result1 = op.CreateGoods("1", false, 0.1);
-            var result3 = op.FilterGoodsByIsPreorder(false);
+            var result3 = op.FilterGoodsByIsReady(false);
             var judge = false;
             foreach (IGoodsEntity result in result3)
             {
@@ -228,13 +228,13 @@ namespace test
         }
 
         [Test]
-        public void Test_IsPreorder()
+        public void Test_IsReady()
         {
             var gen = new IdGenerator(ActionType.Goods);
             IGoodsProvider op = new GoodsProvider(gen, db);
             IGoodsEntity result1 = op.CreateGoods("456", false, 0.1);
             var result = op.GetGoods(result1.Id);
-            Assert.AreEqual(result.IsPreorder, result1.IsPreorder);
+            Assert.AreEqual(result.IsReady, result1.IsReady);
         }
 
         [Test]
