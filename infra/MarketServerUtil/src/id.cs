@@ -16,7 +16,7 @@ public class IdGenerator
 
     public IdGenerator(ActionType type)
     {
-        _gen = new Generator((byte)type, 2022);
+        _gen = new Generator((byte)type, 2023);
     }
 
     public long Next() => _gen.Next();
