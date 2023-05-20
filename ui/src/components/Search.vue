@@ -30,8 +30,9 @@
           v-for="goods in search_result"
           :cover_img="goods.GoodsCoverImg"
           :name="goods.GoodsName"
+          :price="goods.GoodsPrice"
           :booking_route="'booking/'+goods.GoodsId"
-          :trailer_url="goods.GoodsPreviewVideoUrl"
+          :pv_url="goods.GoodsPreviewVideoUrl"
       />
     </div>
 

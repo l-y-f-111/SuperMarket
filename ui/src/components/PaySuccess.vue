@@ -55,7 +55,7 @@
             prepend-icon="mdi-printer"
             @click="router.push('/ticket_printing/'+payment_id)"
         >
-          入场凭据
+          查看凭据
         </v-btn>
         <v-btn
             class="go_to_my_orders_btn"

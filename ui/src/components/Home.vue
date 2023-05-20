@@ -1,76 +1,55 @@
 <template>
-  <div class="home_zone">
-    <v-card variant="text">
-      <template v-slot:title>
-        <v-chip color="orange" size="x-large">
-          <h2 style="font-weight:400">
-            热销商品
-          </h2>
-        </v-chip>
-      </template>
+    <div class="home_zone">
+        <HomeSliders :goods="ready_goods_list"/>
 
-      <v-card-text class="card_field">
-        <GoodsPreviewCard
-            v-for="goods in released_goods_list"
-            :cover_img="goods.GoodsCoverImg"
-            :name="goods.GoodsName"
-            :booking_route="'booking/'+goods.GoodsId"
-            :trailer_url="goods.GoodsPreviewVideoUrl"
-        />
-      </v-card-text>
+        <v-card variant="text">
+            <template v-slot:title>
+                <v-chip color="orange" size="x-large">
+                    <h2 style="font-weight:400">
+                        热销商品
+                    </h2>
+                </v-chip>
+            </template>
 
-    </v-card>
-    <v-card variant="text" class="mt-5">
-      <template v-slot:title>
-        <v-chip color="blue" size="x-large">
-          <h2 style="font-weight:400">
-            预售中
-          </h2>
-        </v-chip>
-      </template>
+            <v-card-text class="card_field">
+                <GoodsPreviewCard
+                        v-for="goods in ready_goods_list"
+                        :cover_img="goods.GoodsCoverImg"
+                        :name="goods.GoodsName"
+                        :stock="goods.GoodsStock"
+                        :price="goods.GoodsPrice"
+                        :booking_route="'booking/'+goods.GoodsId"
+                        :pv_url="goods.GoodsPreviewVideoUrl"
+                />
+            </v-card-text>
 
-      <v-card-text class="card_field">
-        <GoodsPreviewCard
-            v-for="goods in preview_goods_list"
-            :cover_img="goods.GoodsCoverImg"
-            :name="goods.GoodsName"
-            :booking_route="'booking/'+goods.GoodsId"
-            :trailer_url="goods.GoodsPreviewVideoUrl"
-        />
-      </v-card-text>
-    </v-card>
+        </v-card>
 
-  </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
 
 import {onMounted, ref} from "vue"
 import GoodsPreviewCard from "@/components/goods/GoodsPreviewCard.vue"
-import {
-  goods_on_show_list,
-  goods_preview_list
-} from "@/scripts/goods_data"
 import {GoodsRsp, getAllGoods, GetAllGoodsReq} from "@/scripts/ws/goods/getAllGoods"
 import {useRouter} from "vue-router"
+import HomeSliders from "@/components/HomeSliders.vue"
 
 const router = useRouter()
 let req = <GetAllGoodsReq>{
-  CinemaName: "hi"
+    CinemaName: "hi"
 }
 
-const released_goods_list = ref<GoodsRsp[]>([])
-const preview_goods_list = ref<GoodsRsp[]>([])
+const ready_goods_list = ref<GoodsRsp[]>([])
 
 onMounted(async () => {
-  const all_goods_list = (await getAllGoods({})).Collection
+    const all_goods_list = (await getAllGoods({})).Collection
 
-  for (const goods of all_goods_list) {
-    if (goods.GoodsIsPreorder)
-      preview_goods_list.value.push(goods)
-    else
-      released_goods_list.value.push(goods)
-  }
+    for (const goods of all_goods_list) {
+        if (goods.GoodsIsReady)
+            ready_goods_list.value.push(goods)
+    }
 
 })
 

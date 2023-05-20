@@ -26,23 +26,9 @@
         >商品管理
         </v-btn>
         <v-btn variant="text" size="large"
-               :to="'/cinema_management'"
-               v-if="IsUserAdmin&&IsUserLogin"
-        >排厅管理
-        </v-btn>
-        <v-btn variant="text" size="large"
-               :to="'/box_office_statistics'"
-        >销售排行
-        </v-btn>
-        <v-btn variant="text" size="large"
                :to="'/recent_orders/'+UserId"
                v-if="IsUserLogin"
         >我的订单
-        </v-btn>
-        <v-btn variant="text" size="large"
-               :to="'/ticket_checking'"
-               v-if="IsUserAdmin&&IsUserLogin"
-        >检票
         </v-btn>
       </v-toolbar-title>
 

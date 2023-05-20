@@ -33,7 +33,7 @@
              v-if="IsUserAdmin"
              @click="refund(order_id)"
       >
-        退票
+        退款
       </v-btn>
     </v-card-actions>
   </v-card>
