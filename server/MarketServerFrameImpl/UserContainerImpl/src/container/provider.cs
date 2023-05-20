@@ -22,32 +22,15 @@ namespace SuperMarket.Container.User.Provider
 
         public IUserEntity? CreateUser(long id, string pwd, IVipEntity vip, DateTime vipLevelExpireTime)
         {
-            int up = 0, low = 0;
-            if (pwd.Length >= 8)
+            IUserOperation userOperation = new UserOperation(Db);
+            Hasher hasher = new Hasher();
+            var hpwd = hasher.GetHash(pwd);
+            IUserModel user = new UserModel(id, hpwd, vip.Level, vipLevelExpireTime);
+            var flag = userOperation.CreateUser(user);
+            if (flag)
             {
-                foreach (char c in pwd)
-                {
-                    if (c >= 'a' && c <= 'z')
-                        up++;
-                    if (c >= 'A' && c <= 'Z')
-                        low++;
-                }
-
-                if (up > 0 && low > 0)
-                {
-                    IUserOperation userOperation = new UserOperation(Db);
-                    Hasher hasher = new Hasher();
-                    var hpwd = hasher.GetHash(pwd);
-                    IUserModel user = new UserModel(id, hpwd, vip.Level, vipLevelExpireTime);
-                    var flag = userOperation.CreateUser(user);
-                    if (flag)
-                    {
-                        IUserEntity entity = new UserEntity(id, this.orderProviderF, Db);
-                        return entity;
-                    }
-                    else return null;
-                }
-                else return null;
+                IUserEntity entity = new UserEntity(id, this.orderProviderF, Db);
+                return entity;
             }
             else return null;
         }

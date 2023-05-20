@@ -47,35 +47,18 @@ namespace SuperMarket.Container.User.Entity
 
         public bool ResetPwd(string oldPwd, string newPwd)
         {
-            int up = 0, low = 0;
-            if (newPwd.Length >= 8)
+            if (oldPwd != newPwd)
             {
-                foreach (char c in newPwd)
+                Hasher hasher = new Hasher();
+                var user = new UserOperation(Db).GetUser(this.Id);
+                if (user != null)
                 {
-                    if (c >= 'a' && c <= 'z')
-                        up++;
-                    if (c >= 'A' && c <= 'Z')
-                        low++;
-                }
-
-                if (up > 0 && low > 0)
-                {
-                    if (oldPwd != newPwd)
+                    if (hasher.TextIsHash(oldPwd, user.PwdHash))
                     {
-                        Hasher hasher = new Hasher();
-                        var user = new UserOperation(Db).GetUser(this.Id);
-                        if (user != null)
-                        {
-                            if (hasher.TextIsHash(oldPwd, user.PwdHash))
-                            {
-                                var newhpd = hasher.GetHash(newPwd);
-                                var updateuser = new UserOperation(Db);
-                                updateuser.UpdateUserPwdHash(Id, newhpd);
-                                return true;
-                            }
-                            else return false;
-                        }
-                        else return false;
+                        var newhpd = hasher.GetHash(newPwd);
+                        var updateuser = new UserOperation(Db);
+                        updateuser.UpdateUserPwdHash(Id, newhpd);
+                        return true;
                     }
                     else return false;
                 }
