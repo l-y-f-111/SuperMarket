@@ -37,7 +37,7 @@ const props = defineProps<{
 
 const router = useRouter()
 
-const shuffle_goods = () => props.goods.slice().sort(() => 0.5 - Math.random()).slice(0, 8)
+const shuffle_goods = () => props.goods.slice().sort(() => 0.5 - Math.random()).slice(4, 12)
 
 </script>
 

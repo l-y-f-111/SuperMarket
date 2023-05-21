@@ -25,7 +25,7 @@ type GetGoodsRsp =
     }
 
 async function getGoods(req: GetGoodsReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/get_goods`)
+    const conn = createWebSocket(`${wsUrlRoot}/goods/get`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

@@ -18,7 +18,7 @@ type DeleteGoodsRsp =
     }
 
 async function deleteGoods(req: DeleteGoodsReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/delete_goods`)
+    const conn = createWebSocket(`${wsUrlRoot}/goods/delete`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

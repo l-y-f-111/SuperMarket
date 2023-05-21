@@ -18,7 +18,7 @@ type RefundOrderRsp =
     }
 
 async function refundOrder(req: RefundOrderReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/refund_order`)
+    const conn = createWebSocket(`${wsUrlRoot}/order/refund`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

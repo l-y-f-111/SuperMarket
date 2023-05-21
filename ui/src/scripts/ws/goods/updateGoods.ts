@@ -25,7 +25,7 @@ type UpdateGoodsRsp =
     }
 
 async function updateGoods(req: UpdateGoodsReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/update_goods`)
+    const conn = createWebSocket(`${wsUrlRoot}/goods/update`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

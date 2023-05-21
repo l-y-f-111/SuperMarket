@@ -3,7 +3,7 @@
   <v-card class="mt-2">
     <v-card-title>
       <v-chip variant="text">订单号 {{ order_id }}</v-chip>
-      <v-chip color="primary">
+      <v-chip color="orange">
         订单状态 {{ OrderStatus }}
       </v-chip>
     </v-card-title>
@@ -23,13 +23,13 @@
     </v-card-text>
     <v-card-actions>
       <v-btn
-          class="mx-4" color="primary"
+          class="mx-4" color="orange"
           prepend-icon="mdi-printer"
           @click="router.push('/ticket_printing/'+order_id)"
       >
         凭据
       </v-btn>
-      <v-btn class="mx-4" color="primary"
+      <v-btn class="mx-4" color="orange"
              v-if="IsUserAdmin"
              @click="refund(order_id)"
       >

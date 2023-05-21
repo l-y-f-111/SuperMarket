@@ -22,7 +22,7 @@ type GetUserRsp =
     }
 
 async function getUser(req: GetUserReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/get_user`)
+    const conn = createWebSocket(`${wsUrlRoot}/user/get`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

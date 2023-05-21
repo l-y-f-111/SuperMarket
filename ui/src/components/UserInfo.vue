@@ -7,7 +7,7 @@
                 <v-card-title>
                     <h4>
                         <v-chip
-                                color="primary"
+                                color="orange"
                                 size="x-large"
                                 variant="text"
                         >
@@ -55,14 +55,14 @@
                 <v-card-actions>
                     <v-btn
                             prepend-icon="mdi-cellphone"
-                            color="primary"
+                            color="orange"
                             @click=""
                     >
                         改绑手机
                     </v-btn>
                     <v-btn
                             prepend-icon="mdi-lock-reset"
-                            color="primary"
+                            color="orange"
                             @click="router.push('/reset_pwd/'+user_id)"
                     >
                         修改密码
@@ -70,7 +70,7 @@
                     <!--
                               <v-btn
                                   prepend-icon="mdi-crown"
-                                  color="primary"
+                                  color="orange"
                                   @click="router.push('/upgrade_vip/'+user_id)"
                               >
                                 升级会员

@@ -1,35 +1,35 @@
 import {wsUrlRoot} from "@/scripts/ws/meta"
 import {createWebSocket, recvMsg, reqStringify, rspParse, sendMsg} from "@/scripts/ws/helper"
 
-export {createOrder}
+export {addOrder}
 export type {
-    CreateOrderReq,
-    CreateOrderRsp
+    AddOrderReq,
+    AddOrderRsp
 }
 
-type CreateOrderReq =
+type AddOrderReq =
     {
         OrderGoodsId: bigint
         OrderUserId: bigint
         OrderPayAmount: number
     }
 
-type CreateOrderRsp =
+type AddOrderRsp =
     {
         Ok: boolean
         OrderId: bigint
         AlipayQrCodePath: string
     }
 
-async function createOrder(req: CreateOrderReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/create_order`)
+async function addOrder(req: AddOrderReq) {
+    const conn = createWebSocket(`${wsUrlRoot}/order/add`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)
-    console.log('create_order req:' + reqJson)
+    console.log('add_order req:' + reqJson)
     sendMsg(conn, reqJson).then()
     const msg = await task
-    console.log('create_order rsp:' + msg)
+    console.log('add_order rsp:' + msg)
 
-    return <CreateOrderRsp>rspParse(msg)
+    return <AddOrderRsp>rspParse(msg)
 }

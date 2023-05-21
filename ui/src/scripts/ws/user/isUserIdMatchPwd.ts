@@ -19,7 +19,7 @@ type IsUserIdMatchPwdRsp =
     }
 
 async function isUserIdMatchPwd(req: IsUserIdMatchPwdReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/is_user_id_match_pwd`)
+    const conn = createWebSocket(`${wsUrlRoot}/user/is_id_match_pwd`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

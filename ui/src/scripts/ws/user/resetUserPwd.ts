@@ -20,7 +20,7 @@ type ResetUserPwdRsp =
     }
 
 async function resetUserPwd(req: ResetUserPwdReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/reset_user_pwd`)
+    const conn = createWebSocket(`${wsUrlRoot}/user/reset_pwd`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

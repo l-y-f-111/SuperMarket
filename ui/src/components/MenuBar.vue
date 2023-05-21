@@ -2,7 +2,7 @@
   <div>
 
     <v-app-bar
-        color="primary"
+        color="orange"
         prominent
     >
       <v-toolbar-title>

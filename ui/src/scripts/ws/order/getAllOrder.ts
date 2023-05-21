@@ -27,7 +27,7 @@ type GetAllOrderRsp =
     }
 
 async function getAllOrder(req: GetAllOrderReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/get_all_order`)
+    const conn = createWebSocket(`${wsUrlRoot}/order/get_all`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

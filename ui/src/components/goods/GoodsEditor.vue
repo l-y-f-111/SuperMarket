@@ -3,7 +3,7 @@
 
         <v-card>
             <v-card-title>
-                影片编辑
+                商品编辑
             </v-card-title>
             <v-card-text>
                 <v-text-field label="商品名" v-model="GoodsName"/>
@@ -20,14 +20,14 @@
 
                 <v-switch
                         label="上架"
-                        color="primary"
+                        color="orange"
                         v-model="GoodsIsReady"
                 />
                 <v-btn
                         v-if="!create_goods"
                         prepend-icon="mdi-content-save"
                         style="float:right"
-                        color="primary"
+                        color="orange"
                         class="mb-4"
                         @click="save()"
                 >
@@ -37,7 +37,7 @@
                         v-else
                         prepend-icon="mdi-plus-circle"
                         style="float:right"
-                        color="primary"
+                        color="orange"
                         class="mb-4"
                         @click="save()"
                 >

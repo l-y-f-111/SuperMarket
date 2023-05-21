@@ -30,7 +30,7 @@
 
       <v-btn
           class="pay-btn"
-          color="primary"
+          color="orange"
           @click="create()"
       >
         创建订单
@@ -54,7 +54,7 @@ const GoodsPrice = ref(0.0)
 
 import {onMounted, Ref, ref, watch} from "vue"
 import {getGoods} from "@/scripts/ws/goods/getGoods"
-import {createOrder} from "@/scripts/ws/order/createOrder"
+import {addOrder} from "@/scripts/ws/order/addOrder"
 import {HTMLCanvasElementLuminanceSource} from "html5-qrcode/third_party/zxing-js.umd"
 import {utf8_to_b64} from "@/scripts/ws/helper"
 
@@ -94,7 +94,7 @@ const seats_row_cols =
     ])
 
 async function create() {
-    const order = (await createOrder({
+    const order = (await addOrder({
         OrderGoodsId: props.goodsId,
         OrderUserId: UserId.value,
         OrderPayAmount: UserVipDiscount.value * GoodsPrice.value

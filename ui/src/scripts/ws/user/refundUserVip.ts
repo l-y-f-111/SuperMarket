@@ -18,7 +18,7 @@ type RefundUserVipRsp =
     }
 
 async function refundUserVip(req: RefundUserVipReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/refund_user_vip`)
+    const conn = createWebSocket(`${wsUrlRoot}/user/refund_vip`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

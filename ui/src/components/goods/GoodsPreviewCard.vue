@@ -44,7 +44,7 @@
         <v-card-actions>
             <v-btn
                     variant="text"
-                    color="primary"
+                    color="orange"
                     @click="router.push('/'+props.booking_route)"
                     :disabled="!IsUserLogin||props.stock==0"
             >

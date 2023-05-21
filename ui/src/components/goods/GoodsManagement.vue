@@ -5,7 +5,7 @@
             <v-btn
                     prepend-icon="mdi-plus-circle"
                     class="mx-auto"
-                    color="primary"
+                    color="orange"
                     @click="router.push('/goods_editor/create')"
             >
                 新增
@@ -13,7 +13,7 @@
             <v-btn
                     prepend-icon="mdi-delete"
                     class="mx-auto"
-                    color="primary"
+                    color="orange"
                     @click="selected_goods_ids=[]"
             >
                 清除选中
@@ -21,7 +21,7 @@
             <v-btn
                     prepend-icon="mdi-delete"
                     class="mx-auto"
-                    color="primary"
+                    color="orange"
                     @click="delete_batch()"
             >
                 删除选中
@@ -32,7 +32,7 @@
 
         <v-banner
                 v-for="item in AllGoods"
-                color="primary"
+                color="orange"
         >
             <v-banner-text style="font-size:20px">
                 <v-checkbox
@@ -41,8 +41,20 @@
                         :value="Number(item.GoodsId)"
                 />
                 <v-chip
-                        :text="item.GoodsId.toString()"
-                        color="primary"
+                        class="mr-3"
+                        :text="'ID '+item.GoodsId.toString()"
+                        color="orange"
+                />
+                <v-chip
+                        class="mr-3"
+                        :text="'库存 '+item.GoodsStock.toString()"
+                        color="orange"
+                />
+                <v-chip
+                        v-if="item.GoodsIsReady"
+                        class="mr-3"
+                        :text="'已上架'"
+                        color="orange"
                 />
             </v-banner-text>
             <template v-slot:actions>

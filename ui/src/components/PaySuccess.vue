@@ -5,7 +5,7 @@
 
       <v-chip
           size="x-large"
-          color="primary"
+          color="orange"
           prepend-icon="mdi-clock-outline"
       >
         订单已被创建，请在 2 小时内完成支付.
@@ -31,7 +31,7 @@
       <div style="display: flex;justify-content:space-around">
         <v-card rounded>
           <div style="display: flex;flex-direction: column">
-            <v-chip color="primary" style="margin: auto" class="mt-2">
+            <v-chip color="orange" style="margin: auto" class="mt-2">
               订单二维码
             </v-chip>
             <canvas ref="order_id_qrcode_area"></canvas>
@@ -40,7 +40,7 @@
 
         <v-card rounded>
           <div style="display: flex;flex-direction: column">
-            <v-chip color="primary" style="margin: auto" class="mt-2">
+            <v-chip color="orange" style="margin: auto" class="mt-2">
               支付宝支付二维码
             </v-chip>
             <canvas ref="alipay_qrcode_path_qrcode_area"></canvas>
@@ -51,7 +51,7 @@
       <div class="foot">
         <v-btn
             class="go_to_my_orders_btn"
-            color="primary"
+            color="orange"
             prepend-icon="mdi-printer"
             @click="router.push('/ticket_printing/'+payment_id)"
         >
@@ -59,7 +59,7 @@
         </v-btn>
         <v-btn
             class="go_to_my_orders_btn"
-            color="primary"
+            color="orange"
             prepend-icon="mdi-keyboard-return"
             @click="router.push('/recent_orders')"
         >

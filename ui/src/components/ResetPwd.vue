@@ -4,7 +4,7 @@
     <v-card-title>
       <div style="display:flex">
         <v-chip
-            color="primary"
+            color="orange"
             size="x-large"
             variant="text"
             class="mx-auto"
@@ -31,7 +31,7 @@
       />
 
       <v-btn
-          color="primary"
+          color="orange"
           width="100%"
           height="50px"
           size="large"

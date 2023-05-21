@@ -19,7 +19,7 @@ type UpgradeUserVipRsp =
     }
 
 async function upgradeUserVip(req: UpgradeUserVipReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/upgrade_user_vip`)
+    const conn = createWebSocket(`${wsUrlRoot}/user/upgrade_vip`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

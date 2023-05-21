@@ -18,7 +18,7 @@ type IsOrderIdValidRsp =
     }
 
 async function isOrderIdValid(req: IsOrderIdValidReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/is_order_id_valid`)
+    const conn = createWebSocket(`${wsUrlRoot}/order/is_id_valid`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)

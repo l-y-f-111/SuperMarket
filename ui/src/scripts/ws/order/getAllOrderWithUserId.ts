@@ -19,7 +19,7 @@ type GetAllOrderWithUserIdRsp =
     }
 
 async function getAllOrderWithUserId(req: GetAllOrderWithUserIdReq) {
-    const conn = createWebSocket(`${wsUrlRoot}/get_all_order_with_user_id`)
+    const conn = createWebSocket(`${wsUrlRoot}/order/get_all_with_user_id`)
 
     const task = recvMsg(conn)
     const reqJson = reqStringify(req)
