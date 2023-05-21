@@ -14,25 +14,22 @@ using WebSocketSharp;
 using WebSocketSharp.Server;
 using MarketServerUtil;
 
-public struct CreateOrderReq
+public struct AddOrderReq
 {
     public long OrderGoodsId;
     public long OrderUserId;
-    public long OrderCinemaId;
-    public long OrderScheduleId;
-    public string OrderSeat;
     public double OrderPayAmount;
 }
 
-public struct CreateOrderRsp
+public struct AddOrderRsp
 {
     public bool Ok;
     public long OrderId;
     public string AlipayQrCodePath;
 }
 
-//api : create_order
-public class CreateOrder : WebSocketBehavior
+//api : add_order
+public class AddOrder : WebSocketBehavior
 {
     private IUserProvider _userProvider;
     private IGoodsProvider _goodsProvider;
@@ -54,17 +51,17 @@ public class CreateOrder : WebSocketBehavior
 
     protected override void OnMessage(MessageEventArgs e)
     {
-        Console.WriteLine($"create_order req:\n{e.Data}");
+        Console.WriteLine($"add_order req:\n{e.Data}");
 
-        var req = JsonHelper.Parse<CreateOrderReq>(e.Data);
+        var req = JsonHelper.Parse<AddOrderReq>(e.Data);
         var user = _userProvider.GetUser(req.OrderUserId);
         var Goods = _goodsProvider.GetGoods(req.OrderGoodsId);
 
-        CreateOrderRsp rsp;
+        AddOrderRsp rsp;
 
         if (user != null && Goods != null)
         {
-            var order = _orderProvider.CreateOrder
+            var order = _orderProvider.AddOrder
             (
                 user,
                 req.OrderPayAmount,
@@ -84,7 +81,7 @@ public class CreateOrder : WebSocketBehavior
                 );
                 var f2fRsp = _f2fClient.ExecuteRequest(f2fReq);
 
-                rsp = new CreateOrderRsp
+                rsp = new AddOrderRsp
                 {
                     Ok = true,
                     OrderId = order.Id,
@@ -93,7 +90,7 @@ public class CreateOrder : WebSocketBehavior
             }
             else
             {
-                rsp = new CreateOrderRsp
+                rsp = new AddOrderRsp
                 {
                     Ok = false,
                     OrderId = 0,
@@ -103,7 +100,7 @@ public class CreateOrder : WebSocketBehavior
         }
         else
         {
-            rsp = new CreateOrderRsp
+            rsp = new AddOrderRsp
             {
                 Ok = false,
                 OrderId = 0,
@@ -112,7 +109,7 @@ public class CreateOrder : WebSocketBehavior
         }
 
         var json = JsonHelper.Stringify(rsp);
-        Console.WriteLine($"create_order rsp:\n{json}");
+        Console.WriteLine($"add_order rsp:\n{json}");
         Send(json);
     }
 }

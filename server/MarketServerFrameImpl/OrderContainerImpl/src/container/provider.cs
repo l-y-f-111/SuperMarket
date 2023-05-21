@@ -43,7 +43,7 @@ namespace SuperMarket.Container.Order.Provider
             this.Db = db;
         }
 
-        public IOrderEntity? CreateOrder(
+        public IOrderEntity? AddOrder(
             IUserEntity user,
             double payAmount,
             IGoodsEntity goods

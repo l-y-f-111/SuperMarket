@@ -16,7 +16,7 @@ namespace SuperMarket.Db.Order.Operation
             _goodsOp = goodsOp;
         }
 
-        public bool CreateOrder(IOrderModel model)
+        public bool AddOrder(IOrderModel model)
         {
             var flag = Db.Query(@$"INSERT INTO public.order
              (order_id,order_user_id,order_pay_amount,order_goods_id,order_time,

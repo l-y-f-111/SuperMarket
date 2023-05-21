@@ -11,7 +11,7 @@ using User.Entity;
 //src/container/provider.cs
 public interface IOrderProvider
 {
-    public IOrderEntity? CreateOrder
+    public IOrderEntity? AddOrder
     (
         IUserEntity user,
         double payAmount,

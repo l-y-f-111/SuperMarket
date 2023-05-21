@@ -9,7 +9,6 @@ using SuperMarket.Container.User.Provider;
 using SuperMarket.Container.Vip.Provider;
 using SuperMarket.Db.Goods.Operation;
 using WebSocketSharp.Server;
-using SuperMarket.Server.Api;
 using SuperMarket.Server.Api.Goods;
 using SuperMarket.Server.Api.Order;
 using SuperMarket.Server.Api.User;
@@ -23,10 +22,6 @@ Host.CreateDefaultBuilder()
 
 public class Worker : BackgroundService
 {
-    public Worker() : base()
-    {
-    }
-
     protected override Task ExecuteAsync(CancellationToken ct)
     {
         var f2fClient = new F2FClient(
@@ -48,7 +43,7 @@ public class Worker : BackgroundService
             5432,
             "super_market"
         );
-        
+
         IGoodsProvider goodsProvider = null;
         IOrderProvider orderProvider = null;
         IUserProvider userProvider = null;
@@ -58,7 +53,7 @@ public class Worker : BackgroundService
         var orderProviderF = () => orderProvider;
         var userProviderF = () => userProvider;
         var vipProviderF = () => vipProvider;
-        
+
         goodsProvider = new GoodsProvider(goodsGen, db);
         orderProvider = new OrderProvider(
             userProviderF,
@@ -72,34 +67,34 @@ public class Worker : BackgroundService
 
 //Goods
         wsServer.AddWebSocketService<AddGoods>
-        ("/add_goods",
+        ("/goods/add",
             handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<DeleteGoods>
-        ("/delete_goods",
+        ("/goods/delete",
             handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetAllGoods>
-        ("/get_all_goods",
+        ("/goods/get_all",
             handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetAllGoodsType>
-        ("/get_all_goods_type",
+        ("/goods/get_all_type",
             handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<GetGoods>
-        ("/get_goods",
+        ("/goods/get",
             handler => handler.Set(goodsProviderF()));
         wsServer.AddWebSocketService<SearchGoods>
-        ("/search_goods",
+        ("/goods/search",
             handler => handler
                 .Set(
                     goodsProviderF()
                 )
         );
         wsServer.AddWebSocketService<UpdateGoods>
-        ("/update_goods",
+        ("/goods/update",
             handler => handler.Set(goodsProviderF()));
 
 //Order
-        wsServer.AddWebSocketService<CreateOrder>
-        ("/create_order",
+        wsServer.AddWebSocketService<AddOrder>
+        ("/order/add",
             handler => handler
                 .Set(
                     userProviderF(),
@@ -109,24 +104,24 @@ public class Worker : BackgroundService
                 )
         );
         wsServer.AddWebSocketService<GetAllOrder>
-        ("/get_all_order",
+        ("/order/get_all",
             handler => handler.Set(orderProviderF(), f2fClient));
         wsServer.AddWebSocketService<GetOrder>
-        ("/get_order",
+        ("/order/get",
             handler => handler.Set(orderProviderF(), f2fClient));
         wsServer.AddWebSocketService<GetAllOrderWithUserId>
-        ("/get_all_order_with_user_id",
+        ("/order/get_all_with_user_id",
             handler => handler.Set(userProviderF()));
         wsServer.AddWebSocketService<IsOrderIdValid>
-        ("/is_order_id_valid",
+        ("/order/is_id_valid",
             handler => handler.Set(orderProviderF()));
         wsServer.AddWebSocketService<RefundOrder>
-        ("/refund_order",
+        ("/order/refund",
             handler => handler.Set(orderProviderF(), f2fClient));
-        
+
 //User
         wsServer.AddWebSocketService<AddUser>
-        ("/add_user",
+        ("/user/add",
             handler => handler
                 .Set(
                     userProviderF(),
@@ -134,22 +129,22 @@ public class Worker : BackgroundService
                 )
         );
         wsServer.AddWebSocketService<ResetUserPwd>
-        ("/reset_user_pwd",
+        ("/user/reset_pwd",
             handler => handler.Set(userProviderF()));
         wsServer.AddWebSocketService<GetUser>
-        ("/get_user",
+        ("/user/get",
             handler => handler.Set(userProviderF()));
         wsServer.AddWebSocketService<IsUserIdMatchPwd>
-        ("/is_user_id_match_pwd",
+        ("/user/is_id_match_pwd",
             handler => handler.Set(userProviderF()));
         wsServer.AddWebSocketService<RefundUserVip>
-        ("/refund_user_vip",
+        ("/user/refund_vip",
             handler => handler.Set(userProviderF()));
         wsServer.AddWebSocketService<GetUserVipLevel>
-        ("/get_user_vip_level",
+        ("/user/get_vip_level",
             handler => handler.Set(userProviderF(), vipProviderF()));
         wsServer.AddWebSocketService<UpgradeUserVip>
-        ("/upgrade_user_vip",
+        ("/user/upgrade_vip",
             handler => handler
                 .Set(
                     userProviderF(),

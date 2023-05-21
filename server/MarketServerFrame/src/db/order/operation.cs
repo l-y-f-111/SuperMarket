@@ -9,7 +9,7 @@ using Model;
 //src/db/operation.cs
 public interface IOrderOperation
 {
-    public bool CreateOrder(IOrderModel model);
+    public bool AddOrder(IOrderModel model);
     public bool DeleteOrder(long orderId);
     public IOrderModel? GetOrder(long orderId);
     public List<IOrderModel> GetAllOrder();

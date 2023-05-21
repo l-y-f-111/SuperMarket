@@ -14,11 +14,11 @@ namespace SuperMarket.Db.Order
         [SetUp]
 
             /*       [Test]
-             public void Test_CreateOrder()
+             public void Test_AddOrder()
                     {
                         OrderOperation b = new OrderOperation(db,null);
                         OrderModel model = new OrderModel(123456789, 156666, 34, DateTime.Now, 111, 222, 333, "第五排第三列","ok");
-                        var result = b.CreateOrder(model);
+                        var result = b.AddOrder(model);
                         Assert.IsTrue(result);
                     }*/
            
